@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void onSensorChanged(SensorEvent event) {
+        if (mBuilder.length() > 1) {
+            mBuilder.delete(0, mBuilder.length() - 1);
+        }
         mBuilder.append("Heart Rate:");
         mBuilder.append(event.values[0]);
         HeartRate.setText(mBuilder.toString());
